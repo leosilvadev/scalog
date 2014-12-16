@@ -6,12 +6,14 @@
 
 <!DOCTYPE html>
 
+<spring:url value="/resources" var="resources" scope="request"/>
 <spring:url value="/logs" var="url_list" />
+<spring:url value="/logout" var="url_logout" />
 <spring:url value="/" var="url_index" />
 
 <style type="text/css">
-	@IMPORT url("resources/dist/css/bootstrap.min.css");
-	@IMPORT url("resources/dist/css/bootstrap-theme.min.css");
+	@IMPORT url("${resources}/dist/css/bootstrap.min.css");
+	@IMPORT url("${resources}/dist/css/bootstrap-theme.min.css");
 	.error-message{
 		color: red;
 		font-style: italic;
@@ -53,12 +55,12 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li>
 					<a href="?lang=pt_BR" class="flag">
-						<img alt="Português" src="resources/img/flag_bra.png">
+						<img alt="Português" src="${resources}/img/flag_bra.png">
 					</a>
 				</li>
 				<li>
 					<a href="?lang=en_US" class="flag">
-						<img alt="English" src="resources/img/flag_usa.png">
+						<img alt="English" src="${resources}/img/flag_usa.png">
 					</a>
 				</li>
 				<li class="dropdown">
@@ -73,9 +75,7 @@
 						</li>
 						<li class="divider"></li>
 						<li>
-							<a href="#">
-								<spring:message code="app.online.header.menu.logout"/>
-							</a>
+							<a onclick="$('#form_logout').submit()"><spring:message code="app.online.header.menu.logout"/></a>
 						</li>
 					</ul>
 				</li>
@@ -83,3 +83,7 @@
 		</div>
 	</div>
 </nav>
+
+<form id="form_logout" action="${url_logout}" method="post">
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>

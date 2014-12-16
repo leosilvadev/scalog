@@ -16,7 +16,7 @@ import br.com.leonardojgs.scalog.model.domains.Log;
 import br.com.leonardojgs.scalog.model.services.LogService;
 
 @Controller
-@RequestMapping("/logs")
+@RequestMapping("/app/logs")
 public class LogController {
 
 	@Autowired private LogService logService;

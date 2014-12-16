@@ -22,8 +22,8 @@
 		<jsp:include page="../templates/online/footer.jsp"/>
 		<jsp:include page="modal-log.jsp"/>
 		
-		<script type="text/javascript" src="resources/dist/js/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="resources/dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="${resources}/dist/js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="${resources}/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
 				applyPagination();
